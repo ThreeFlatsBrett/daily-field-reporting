@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Environment files — never commit secrets
+.env
+.env.local
+.env*.local
+
+# GCP credentials
+GOOGLE_APPLICATION_CREDENTIALS*
+service-account*.json
+*.pem
+
+# Python
+.venv
+
+# Misc
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
