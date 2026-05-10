@@ -6,7 +6,31 @@
       "PowerShell(node --version)",
       "PowerShell(npx --version)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh auth *)",
+      "Bash(git remote *)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "PowerShell(cd \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\"; $env:DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/daily_field_reporting\"; npx --yes pnpm@9.15.4 run db:migrate 2>&1)",
+      "Bash(npx --yes pnpm@9.15.4 run db:generate)",
+      "Bash(npx --yes pnpm@9.15.4 run db:migrate)",
+      "Bash(mkdir \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\\\\src\\\\app\\\\api\\\\v1\\\\users\\\\[userId]\" 2>&1; echo \"done\")",
+      "Bash(npx --yes pnpm@9.15.4 exec tsc --noEmit)",
+      "Bash(mkdir \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\\\\src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\")",
+      "Bash(mkdir \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\\\\src\\\\app\\\\\\(app\\)\\\\sites\\\\[siteId]\\\\wells\\\\[wellId]\")",
+      "Bash(mkdir \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\\\\src\\\\app\\\\\\(app\\)\\\\sites\\\\[siteId]\\\\wells\")",
+      "Bash(mkdir \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\afe\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\afe\\\\[afeId]\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\coa\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\coa\\\\line-items\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\coa\\\\line-items\\\\[lineItemId]\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\distribution\" \"src\\\\app\\\\api\\\\v1\\\\jobs\\\\[jobId]\\\\distribution\\\\[entryId]\")",
+      "Bash(mkdir \"src\\\\app\\\\\\(app\\)\\\\sites\\\\[siteId]\\\\wells\\\\[wellId]\\\\jobs\")",
+      "Bash(mkdir \"src\\\\app\\\\\\(app\\)\\\\sites\\\\[siteId]\\\\wells\\\\[wellId]\\\\jobs\\\\[jobId]\")",
+      "Bash(npx tsc *)",
+      "Bash(cd \"/c/Users/brett/OneDrive/Documents/LocalCoding/daily-field-reporting\" && cat package.json | grep -E \"puppeteer|chromium|jspdf|pdf\")",
+      "Bash(ls \"/c/Program Files/Google/Chrome/Application/chrome.exe\" 2>/dev/null && echo \"found\" || echo \"not found\")",
+      "Bash(node -e ' *)",
+      "Bash(node scripts/update-user.mjs)",
+      "PowerShell(Get-ChildItem -Recurse -File \"C:\\\\Users\\\\brett\\\\OneDrive\\\\Documents\\\\LocalCoding\\\\daily-field-reporting\\\\src\" | Where-Object { $_.LastWriteTime -gt \\(Get-Date\\).Date } | Select-Object @{N='Time';E={$_.LastWriteTime.ToString\\('HH:mm'\\)}}, FullName | Sort-Object Time | Format-Table -AutoSize)",
+      "Bash(CLERK_SECRET_KEY=\"sk_test_wHrk47ozwalUTNcMNYtESCRCdLs0var1gzEAbbG0vk\" node scripts/lookup-clerk-user.mjs)"
     ]
   }
 }

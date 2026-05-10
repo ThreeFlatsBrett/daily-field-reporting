@@ -14,6 +14,7 @@ interface SendDistributionOptions {
 }
 
 export async function sendDistribution(opts: SendDistributionOptions) {
+  if (!resend) { console.warn("[email] RESEND_API_KEY not set — skipping distribution"); return; }
   const { jobId, reportDate, wellName, tenantName, pdfUrl } = opts;
 
   const entries = await db
@@ -65,6 +66,7 @@ export async function sendSubmitNotification(opts: {
   tenantName: string;
   reportId: string;
 }) {
+  if (!resend) { console.warn("[email] RESEND_API_KEY not set — skipping submit notification"); return; }
   const { adminEmails, wellName, reportDate, tenantName, reportId } = opts;
   if (adminEmails.length === 0) return;
 
@@ -90,6 +92,7 @@ export async function sendRejectionNotification(opts: {
   rejectionNote: string;
   reportId: string;
 }) {
+  if (!resend) { console.warn("[email] RESEND_API_KEY not set — skipping rejection notification"); return; }
   const { editorEmail, wellName, reportDate, rejectionNote, reportId } = opts;
 
   await resend.emails.send({

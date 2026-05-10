@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, timestamp, index, unique } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, boolean, timestamp, index, unique } from "drizzle-orm/pg-core";
 import { tenants } from "./tenants";
 import { userRoleEnum } from "./enums";
 
@@ -11,6 +11,7 @@ export const users = pgTable(
     email:       text("email").notNull(),
     name:        text("name").notNull(),
     role:        userRoleEnum("role").notNull(),
+    isActive:    boolean("is_active").notNull().default(true),
     createdAt:   timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt:   timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },

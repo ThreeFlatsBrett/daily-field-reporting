@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import { db } from "@/db";
 import { users, partnerWellAccess } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -39,4 +40,18 @@ export async function getAuthContext(): Promise<AuthContext> {
     role: user.role,
     allowedWellIds,
   };
+}
+
+/**
+ * Server-component helper: resolves auth context or redirects.
+ * - Not signed in → /sign-in
+ * - Signed into Clerk but not provisioned in DB → /not-provisioned
+ */
+export async function getAuthContextOrRedirect(): Promise<AuthContext> {
+  try {
+    return await getAuthContext();
+  } catch (err) {
+    if (err instanceof ForbiddenError) redirect("/not-provisioned");
+    redirect("/sign-in");
+  }
 }

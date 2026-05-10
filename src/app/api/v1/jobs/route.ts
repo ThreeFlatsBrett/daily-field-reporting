@@ -10,10 +10,19 @@ import { CreateJobSchema } from "@/types/api";
 import { BadRequestError } from "@/lib/api/errors";
 import { sql } from "drizzle-orm";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
     const ctx = await getAuthContext();
-    const rows = await db.select().from(jobs).where(eq(jobs.tenantId, ctx.tenantId));
+    const wellId = req.nextUrl.searchParams.get("wellId");
+    const rows = await db
+      .select()
+      .from(jobs)
+      .where(
+        wellId
+          ? and(eq(jobs.tenantId, ctx.tenantId), eq(jobs.wellId, wellId))
+          : eq(jobs.tenantId, ctx.tenantId)
+      )
+      .orderBy(jobs.jobNumber);
     return ok(rows);
   } catch (err) {
     return handleError(err);
@@ -23,7 +32,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const ctx = await getAuthContext();
-    requireRole(ctx, ["admin"]);
+    requireRole(ctx, ["admin", "editor"]);
     const body = await validate(req, CreateJobSchema);
 
     const [well] = await db.select().from(wells)

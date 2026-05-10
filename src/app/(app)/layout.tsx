@@ -1,6 +1,15 @@
 import { Sidebar } from "@/components/layout/sidebar";
+import { db } from "@/db";
+import { tenants } from "@/db/schema";
+import { redirect } from "next/navigation";
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
+  // If no tenants exist at all, the app needs first-time setup
+  const existing = await db.select({ id: tenants.id }).from(tenants).limit(1);
+  if (existing.length === 0) {
+    redirect("/setup");
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
